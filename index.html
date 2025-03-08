@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Women's Day</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #fff;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .container {
+      max-width: 500px;
+      width: 90%;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    
+    .intro {
+      font-size: 1.2rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+    
+    .letter-wrapper {
+      width: 220px;
+      height: 160px;
+      background: white;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+      margin: 20px auto;
+    }
+    
+    .letter-wrapper:hover {
+      transform: scale(1.1);
+    }
+    
+    .letter {
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      transition: opacity 0.5s;
+    }
+    
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 1.3rem;
+      background: #ff5f6d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    button:hover {
+      background: #ff2a3c;
+      transform: scale(1.1);
+    }
+    
+    .surprise-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 15px;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1s ease-in-out;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    
+    /* Floating hearts and flowers */
+    .heart, .flower {
+      position: absolute;
+      bottom: 0;
+      animation: float 5s linear infinite;
+      opacity: 0.6;
+    }
+    
+    .heart {
+      color: red;
+      font-size: 22px;
+    }
+    
+    .flower {
+      color: pink;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Happy Women's Day! 💖</h1>
+    <p class="intro">This is a special message for you! Click the letter to open it.</p>
+
+    <div class="letter-wrapper" onclick="openLetter()">
+      <div class="letter">
+        <p id="letter-text">💌 Click to open 💌</p>
+      </div>
+    </div>
+
+    <button id="surprise-btn" onclick="showSurprise()">Surprise! 🎁</button>
+
+    <div class="surprise-message" id="surprise">
+      <p>You are loved, strong, and truly special! 💕</p>
+    </div>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.getElementById("letter-text").innerHTML =
+        "💖 Happy Women's Day! You are unique, strong, and full of magic. Keep shining! 🌟";
+    }
+    
+    function showSurprise() {
+      document.getElementById("surprise").style.display = "block";
+    }
+    
+    // Create floating hearts and flowers
+    function createFloatingElements() {
+      const symbols = ["❤️", "🌸", "💖", "🌹"];
+      for (let i = 0; i < 20; i++) {
+        const element = document.createElement("div");
+        element.className = Math.random() > 0.5 ? "heart" : "flower";
+        element.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+        element.style.left = Math.random() * 100 + "vw";
+        element.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(element);
+      }
+    }
+    
+    createFloatingElements();
+  </script>
+</body>
+  </html
